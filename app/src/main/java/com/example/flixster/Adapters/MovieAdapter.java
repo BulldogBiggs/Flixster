@@ -20,6 +20,8 @@ import com.example.flixster.DetailActivity;
 import com.example.flixster.Models.Movie;
 import com.example.flixster.R;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
@@ -86,6 +88,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 public boolean onLongClick(View v) {
                     Intent i = new Intent(context, DetailActivity.class);
                     i.putExtra("title", movie.getTitle());
+                    i.putExtra("Movie", Parcels.wrap(movie));
                     context.startActivity(i);
 
                     return false;
